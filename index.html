@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Ejercicio javascript</title>
+	</head>
+
+	<body>
+		<p>Adder...<span id='op'>5+3</span>
+		<span id="res"></span> <a href="javascript:suma('op','res')">Add!</a></p>
+		<span id="rand"></span> <a href="javascript:addrandom('op')">Dame dos numeros random nuevos!</a></p>
+	</body>
+	<script>
+		function changer (id, newValue) {
+		  var element = document.getElementById(id);
+		  element.innerHTML = newValue;
+		}
+
+		function addrandom(optag) {
+		  var num1=Math.floor((Math.random() * 1000) + 1);
+		  var num2=Math.floor((Math.random() * 1000) + 1);
+		  changer(optag,num1 + "+" + num2);
+		}
+
+		function suma(optag,restag) {
+		  var nums = document.getElementById(optag).innerHTML.split("+");
+		  var resultado = 0;
+		  for (num in nums) {
+		    resultado += parseInt(nums[num]);
+		  }
+		  changer(restag, "= " + resultado)
+		}
+	</script>
+</html>
